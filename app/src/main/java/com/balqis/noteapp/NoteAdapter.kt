@@ -15,9 +15,8 @@ class NoteAdapter(private var notes: List<Note>) : RecyclerView.Adapter<NoteAdap
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        val note = notes[position]
-        holder.binding.textTitle.text = note.title
-        holder.binding.textContent.text = note.content
+        holder.binding.note = notes[position]
+        holder.binding.executePendingBindings()
     }
 
     override fun getItemCount(): Int = notes.size

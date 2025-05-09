@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.delay
 
 class NoteViewModel : ViewModel() {
 
@@ -19,6 +20,7 @@ class NoteViewModel : ViewModel() {
     fun insertNote(note: Note) {
         viewModelScope.launch {
             noteDatabase?.noteDao()?.insert(note)
+            delay(200)
             loadNotes()
         }
     }
