@@ -21,14 +21,11 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel = noteViewModel
         binding.lifecycleOwner = this
 
-        // Init adapter kosong dulu
         noteAdapter = NoteAdapter(emptyList())
 
-        // Pasang LayoutManager dan Adapter ke RecyclerView
         binding.recyclerViewNotes.layoutManager = LinearLayoutManager(this)
         binding.recyclerViewNotes.adapter = noteAdapter
 
-        // Tombol Save
         val editTitle = binding.editTitle
         val editContent = binding.editContent
 
